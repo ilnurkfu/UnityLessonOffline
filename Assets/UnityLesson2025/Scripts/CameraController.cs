@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private Player player;
+    [SerializeField] private MovementViaPhysics movementViaPhysics;
 
     [SerializeField] private float sensivity;
     [SerializeField] private float currentY;
@@ -22,7 +22,7 @@ public class CameraController : MonoBehaviour
         currentY -= mouseY;
         currentY = Mathf.Clamp(currentY, minYAngleLimits, maxYAngleLimits);
 
-        player.PlayerRotate(mouseX);
+        movementViaPhysics.PlayerRotate(mouseX);
 
         transform.localRotation = Quaternion.Euler(currentY, 0f, 0f);
     }

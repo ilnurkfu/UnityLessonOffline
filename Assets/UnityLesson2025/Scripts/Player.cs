@@ -2,22 +2,30 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [SerializeField] private float movementSpeed;
+    [SerializeField] private MeshRenderer meshRenderer;
 
-    private void Update()
+    private void Awake()
     {
-        float verticalMovement = Input.GetAxis("Vertical");
-        float horizontalMovement = Input.GetAxis("Horizontal");
-
-        Vector3 movementForward = transform.forward * verticalMovement;
-
-        Vector3 movementRight = transform.right * horizontalMovement;
-
-        transform.position += (movementForward + movementRight) * movementSpeed * Time.deltaTime;
+        meshRenderer = GetComponent<MeshRenderer>();
     }
 
-    public void PlayerRotate(float mouseInputX)
+    private void OnTriggerEnter(Collider other)
     {
-        transform.Rotate(Vector3.up * mouseInputX);
+        if (other.GetComponent<ColorPotion>() == true)
+        {
+            other.GetComponent<ColorPotion>().ChangeTargetColor(meshRenderer.material);
+        }
+        else if (other.GetComponent<SizePotion>() == true)
+        {
+            other.GetComponent<SizePotion>().ChangeTargetScale(transform);
+        }
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<Wall>() == true)
+        {
+            collision.gameObject.GetComponent<Wall>().CheckColor(meshRenderer.material.color);
+        }
     }
 }
