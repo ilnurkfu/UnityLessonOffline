@@ -1,12 +1,13 @@
 using UnityEngine;
+using UnityEngine.TextCore.Text;
 
-public class ColorPotion : MonoBehaviour
+public class ColorPotion : MonoBehaviour, ITriggerObject<ICharacter>
 {
     [SerializeField] private Color currentColor;
 
-    public void ChangeTargetColor(Material targetMaterial)
+    public void TriggerAction(ICharacter character)
     {
-        targetMaterial.color = currentColor;
+        character.ChangeColor(currentColor);
         Destroy(gameObject);
     }
 }

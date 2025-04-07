@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Wall : MonoBehaviour
+public class Wall : MonoBehaviour, ICollisionObject
 {
     [SerializeField] private Color requiredColor;
 
@@ -11,9 +11,9 @@ public class Wall : MonoBehaviour
         currentCollider = GetComponent<Collider>();
     }
 
-    public void CheckColor(Color targetColor)
+    public void CollisionAction(ICharacter character)
     {
-        if (requiredColor == targetColor)
+        if (requiredColor == character.GetColor())
         {
             currentCollider.enabled = false;
         }

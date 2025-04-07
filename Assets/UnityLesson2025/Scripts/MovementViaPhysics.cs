@@ -2,7 +2,10 @@ using UnityEngine;
 
 public class MovementViaPhysics : MonoBehaviour
 {
+    [SerializeField] private bool isControll;
     [SerializeField] private bool isGrounded;
+
+    [SerializeField] private int groundCount;
 
     //[SerializeField] private int currentjumpCount;
     //[SerializeField] private int maxJumpCount;
@@ -45,7 +48,7 @@ public class MovementViaPhysics : MonoBehaviour
         //    }
         //}
 
-        if (isGrounded == true)
+        if (isGrounded == true && isControll == true)
         {
             rigi.linearVelocity = (movementForward + movementRight) * movementSpeed + new Vector3(0, rigi.linearVelocity.y, 0f);
             if (Input.GetKeyDown(KeyCode.Space))
@@ -61,11 +64,18 @@ public class MovementViaPhysics : MonoBehaviour
         transform.Rotate(Vector3.up * mouseInputX);
     }
 
+    public void SetControll(bool newControllState)
+    {
+        isControll = newControllState;
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.GetComponent<Ground>() == true)
         {
+            groundCount++;
             isGrounded = true;
+            isControll = true;
         }
     }
 
@@ -73,7 +83,12 @@ public class MovementViaPhysics : MonoBehaviour
     {
         if (other.GetComponent<Ground>() == true)
         {
-            isGrounded = false;
+            groundCount--;
+
+            if (groundCount == 0)
+            {
+                isGrounded = false;
+            }
         }
     }
 
