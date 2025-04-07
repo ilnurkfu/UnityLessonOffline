@@ -2816,12 +2816,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a457370e8a63e7f4ca248c1b3ba3b126, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiredScore: 18
+  requiredScore: 16
   currentTime: 0
-  requiredTime: 10
+  requiredTime: 25
   levelDelay: 3
   nextSceneName: MainMenu
-  levelInfo: {fileID: 11400000, guid: 6b31625e08baf6540929adc89f5f74a7, type: 2}
+  levelInfo: {fileID: 11400000, guid: d2a0498b41fbec54bbadc7bba52ffad7, type: 2}
 --- !u!4 &1483330851
 Transform:
   m_ObjectHideFlags: 0

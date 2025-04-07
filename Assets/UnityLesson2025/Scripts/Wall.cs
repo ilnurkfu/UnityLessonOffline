@@ -1,21 +1,38 @@
+using System.Collections;
 using UnityEngine;
 
 public class Wall : MonoBehaviour, ICollisionObject
 {
+    [SerializeField] private bool isOpen = false;
+
+    [SerializeField] protected string AnimationName;
+
     [SerializeField] private Color requiredColor;
 
-    [SerializeField] private Collider currentCollider;
+    [SerializeField] private GameObject flag;
 
-    private void Awake()
+    [SerializeField] private Animator animator;
+
+
+    private void Start()
     {
-        currentCollider = GetComponent<Collider>();
+        flag.GetComponent<MeshRenderer>().material.color = requiredColor;
     }
 
     public void CollisionAction(ICharacter character)
     {
+        Debug.Log("Collision");
         if (requiredColor == character.GetColor())
         {
-            currentCollider.enabled = false;
+            if (isOpen == false)
+            {
+                OpenGate();
+            }
         }
+    }
+
+    public void OpenGate()
+    {
+        animator.Play(AnimationName);
     }
 }

@@ -821,7 +821,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &614556418
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1510,7 +1510,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 259932856435447997, guid: a20e5273665e5c54faf2987c947d8713, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4634928444874769617, guid: a20e5273665e5c54faf2987c947d8713, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -2222,6 +2222,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c1a972b160a0dc54dbc5655065a95790, type: 2}
   - {fileID: 11400000, guid: 76b30f8e9fa875c4abc910ca777ddfee, type: 2}
   - {fileID: 11400000, guid: 6b31625e08baf6540929adc89f5f74a7, type: 2}
+  - {fileID: 11400000, guid: d2a0498b41fbec54bbadc7bba52ffad7, type: 2}
+  secretLevel: {fileID: 596690195}
 --- !u!1 &2048721025
 GameObject:
   m_ObjectHideFlags: 0
