@@ -3,12 +3,12 @@ using System.Collections;
 using UnityEngine;
 using System.Linq;
 
-public class SizePotion : MonoBehaviour, ITriggerObject<ICharacter>
+public class SizePotion : MonoBehaviour, ITriggerObject<ICharacterController>
 {
     [SerializeField] private float sizeScale;
     [SerializeField] private float timer;
 
-    public void TriggerAction(ICharacter character)
+    public void TriggerAction(ICharacterController character)
     {
         character.ChangeSize(sizeScale, timer);
     }

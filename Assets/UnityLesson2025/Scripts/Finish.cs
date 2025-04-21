@@ -1,17 +1,17 @@
 using UnityEngine;
 
-public class Finish : MonoBehaviour, ITriggerObject<IPlayer>
+public class Finish : MonoBehaviour, ITriggerObject<IPlayerController>
 {
     [SerializeField] private LevelManager levelManager;
 
-    public void TriggerAction(IPlayer player)
+    public void TriggerAction(IPlayerController player)
     {
         levelManager.FinishLevel(player.GetScore());
     }
 
-    public void TriggerAction(ICharacter character)
+    public void TriggerAction(ICharacterController character)
     {
-        if (character is IPlayer player)
+        if (character is IPlayerController player)
         {
             TriggerAction(player);
         }

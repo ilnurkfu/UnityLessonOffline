@@ -14,18 +14,18 @@ public class MovementViaCharacterController : MonoBehaviour
 
     private void Update()
     {
-        float verticalMovement = Input.GetAxis("Vertical");
-        float horizontalMovement = Input.GetAxis("Horizontal");
+        //float verticalMovement = Input.GetAxis("Vertical");
+        //float horizontalMovement = Input.GetAxis("Horizontal");
 
-        Vector3 movementForward = transform.forward * verticalMovement;
+        //Vector3 movementForward = transform.forward * verticalMovement;
 
-        Vector3 movementRight = transform.right * horizontalMovement;
+        //Vector3 movementRight = transform.right * horizontalMovement;
 
-        characterController.Move((movementForward + movementRight) * moveSpeed * Time.deltaTime);
+        //characterController.Move((movementForward + movementRight) * moveSpeed * Time.deltaTime);
 
-        if(characterController.isGrounded == false)
-        {
-            characterController.Move(Vector3.up * -gravity * Time.deltaTime);
-        }
+        //if(characterController.isGrounded == false)
+        //{
+        //    characterController.Move(Vector3.up * -gravity * Time.deltaTime);
+        //}
     }
 }

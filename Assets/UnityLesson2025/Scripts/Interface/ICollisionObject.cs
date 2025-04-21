@@ -2,5 +2,5 @@ using UnityEngine;
 
 public interface ICollisionObject
 {
-    public void CollisionAction(ICharacter character);
+    public void CollisionAction(ICharacterController character);
 }

@@ -5,13 +5,12 @@ public class Wall : MonoBehaviour, ICollisionObject
 {
     [SerializeField] private bool isOpen = false;
 
-    [SerializeField] protected string AnimationName;
+    [SerializeField] private float minLimit;
+    [SerializeField] private float maxLimit;
 
     [SerializeField] private Color requiredColor;
 
     [SerializeField] private GameObject flag;
-
-    [SerializeField] private Animator animator;
 
 
     private void Start()
@@ -19,7 +18,24 @@ public class Wall : MonoBehaviour, ICollisionObject
         flag.GetComponent<MeshRenderer>().material.color = requiredColor;
     }
 
-    public void CollisionAction(ICharacter character)
+    private void Update()
+    {
+        if (isOpen == true)
+        {
+            transform.localPosition += Vector3.up * Time.deltaTime;
+        }
+        else
+        {
+            transform.localPosition -= Vector3.up * Time.deltaTime;
+        }
+
+        Vector3 offset = transform.localPosition;
+        offset.y = Mathf.Clamp(offset.y, minLimit, maxLimit);
+
+        transform.localPosition = offset;
+    }
+
+    public void CollisionAction(ICharacterController character)
     {
         Debug.Log("Collision");
         if (requiredColor == character.GetColor())
@@ -33,6 +49,11 @@ public class Wall : MonoBehaviour, ICollisionObject
 
     public void OpenGate()
     {
-        animator.Play(AnimationName);
+        isOpen = true;
+    }
+
+    public void CloseGate()
+    {
+        isOpen = false;
     }
 }

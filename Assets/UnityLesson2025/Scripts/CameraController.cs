@@ -2,28 +2,23 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private MovementViaPhysics movementViaPhysics;
-
-    [SerializeField] private float sensivity;
-    [SerializeField] private float currentY;
-    [SerializeField] private float minYAngleLimits;
-    [SerializeField] private float maxYAngleLimits;
+    [SerializeField] private CameraModel cameraModel;
 
     private void Start()
     {
         Cursor.lockState = CursorLockMode.Locked;
     }
 
-    private void Update()
+    public void RotateCamera(float mouseY)
     {
-        float mouseX = Input.GetAxis("Mouse X") * sensivity;
-        float mouseY = Input.GetAxis("Mouse Y") * sensivity;
+        cameraModel.currentY -= mouseY;
+        cameraModel.currentY = Mathf.Clamp(cameraModel.currentY, cameraModel.MinYAngleLimits, cameraModel.MaxYAngleLimits);
 
-        currentY -= mouseY;
-        currentY = Mathf.Clamp(currentY, minYAngleLimits, maxYAngleLimits);
+        transform.localRotation = Quaternion.Euler(cameraModel.currentY, 0f, 0f);
+    }
 
-        movementViaPhysics.PlayerRotate(mouseX);
-
-        transform.localRotation = Quaternion.Euler(currentY, 0f, 0f);
+    public float GetSensivityScale(float value)
+    {
+        return value * cameraModel.Sensivity;
     }
 }

@@ -18,7 +18,7 @@ EditorBuildSettings:
     path: Assets/UnityLesson2025/Scenes/Level 3.unity
     guid: 51d8a11a868f03942b68aaaae0fcd2fc
   - enabled: 1
-    path: Assets/UnityLesson2025/Scenes/Level 4.unity
+    path: Assets/UnityLesson2025/Scenes/Level 8.unity
     guid: f06fa1439e91f6f4caf76eb3dc1e8f32
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

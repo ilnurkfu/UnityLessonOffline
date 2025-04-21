@@ -1,10 +1,10 @@
 using UnityEngine;
 
-public interface ICharacter
+public interface ICharacterController
 {
     public void ChangeColor(Color newColor);
 
-    public void ApplyDamage(int damage);
+    public void ApplyDamage(int damage, DamagebleType damagebleType);
 
     public void ChangeSize(float newSize, float timeEffect);
 

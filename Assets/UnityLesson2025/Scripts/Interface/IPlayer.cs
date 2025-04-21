@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public interface IPlayer
+public interface IPlayerController
 {
     public void AddScore(int additionalScore);
 

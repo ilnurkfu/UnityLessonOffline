@@ -1,4 +1,4 @@
 public interface ITriggerObjectBase
 {
-    public void TriggerAction(ICharacter character);
+    public void TriggerAction(ICharacterController character);
 }
